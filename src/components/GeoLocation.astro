@@ -1,56 +1,27 @@
 ---
 const countryCode = Object.fromEntries(Astro.request.headers)?.[
   "cf-ipcountry"
-]?.toLowerCase();
-const euCodes = [
-  "at",
-  "be",
-  "bg",
-  "hr",
-  "cy",
-  "cz",
-  "dk",
-  "ee",
-  "fi",
-  "fr",
-  "de",
-  "gr",
-  "hu",
-  "ie",
-  "it",
-  "lv",
-  "lt",
-  "lu",
-  "mt",
-  "nl",
-  "pl",
-  "pt",
-  "ro",
-  "sk",
-  "si",
-  "es",
-  "se",
+]?.toLowerCase()
+
+const euCodes = [ "at", "be", "bg", "hr", "cy", "cz", "dk", "ee", "fi", "fr", "de", "gr", "hu", "ie", "it", "lv", "lt", "lu", "mt", "nl", "pl", "pt", "ro", "sk", "si", "es", "se",
 ];
 
 // Default usd
-let geolocatedCurrency = "usd";
 let geolocatedSymbol = "$";
 let geolocatedPrice = "19.99";
 
 // If gb
 if (countryCode === "gb") {
-  geolocatedCurrency = "gbp";
   geolocatedSymbol = "£";
   geolocatedPrice = "29.99";
 }
 // If in eu
 else if (euCodes.includes(countryCode)) {
-  geolocatedCurrency = "eur";
   geolocatedSymbol = "€";
   geolocatedPrice = "39.99";
 }
 ---
 
-<h2 style="font-size: 5vw; font-weight: 300;">
-  Price: {geolocatedSymbol+geolocatedCurrency+geolocatedPrice}
+<h2>
+  Price: {geolocatedSymbol+geolocatedPrice}
 </h2>

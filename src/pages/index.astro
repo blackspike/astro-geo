@@ -1,5 +1,5 @@
 ---
-import GeoLocation from "../components/GeoLocation.astro"
+import GeoLocation from "../components/GeoLocation.astro";
 ---
 
 <html lang="en">
@@ -16,8 +16,24 @@ import GeoLocation from "../components/GeoLocation.astro"
 	</body>
 </html>
 
-<style>
-	* {
+<style is:global>
+	body {
 		font-family: sans-serif;
+		text-align: center;
+		padding-block-start: 35dvh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 1rem;
+	}
+	h1 {
+		font-size: 1.5rem;
+		font-weight: 500;
+		margin: 0;
+	}
+	h2 {
+		font-size: 3rem;
+		font-weight: 300;
+		margin: 0;
 	}
 </style>
