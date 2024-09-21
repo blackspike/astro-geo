@@ -1,5 +1,11 @@
 # Astro Geolocation
 
+Here's how to use [Astro server islands](https://astro.build/blog/future-of-astro-server-islands/) and [Cloudflare geo headers](https://developers.cloudflare.com/network/ip-geolocation/) to display a different price by region.
+
+![webpage showing "Cloudflare Geolocation Price: £29.99"](public/gb.png)
+
+Demo: https://astro-geo.pages.dev
+
 ## Add the Cloudflare adapter
 
 `npx astro add cloudflare`
@@ -74,4 +80,10 @@ else if (euCodes.includes(countryCode)) {
 
 ## Done!
 
-Check
+Push your code up and check the build in your browser. If you have a vpn, try switching between US/UK/EU servers and reloading.
+
+View live demo: https://astro-geo.pages.dev
+
+![webpage showing "Cloudflare Geolocation Price: €39.99"](public/eu.png)
+![webpage showing "Cloudflare Geolocation Price: £29.99"](public/gb.png)
+![webpage showing "Cloudflare Geolocation Price: €39.99"](public/us.png)
