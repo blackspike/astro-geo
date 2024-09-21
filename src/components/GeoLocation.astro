@@ -34,15 +34,23 @@ const euCodes = [
 
 // Default usd
 let geolocatedCurrency = "usd";
+let geolocatedSymbol = "$";
+let geolocatedPrice = "19.99";
 
 // If gb
 if (countryCode === "gb") {
   geolocatedCurrency = "gbp";
+  geolocatedSymbol = "£";
+  geolocatedPrice = "29.99";
 }
 // If in eu
 else if (euCodes.includes(countryCode)) {
   geolocatedCurrency = "eur";
+  geolocatedSymbol = "€";
+  geolocatedPrice = "39.99";
 }
 ---
 
-<h1>geolocatedCurrency: {geolocatedCurrency}</h1>
+<h2 style="font-size: 5vw; font-weight: 300;">
+  Price: {geolocatedSymbol+geolocatedCurrency+geolocatedPrice}
+</h2>
