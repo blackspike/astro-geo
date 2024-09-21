@@ -1,5 +1,5 @@
 ---
-
+import GeoLocation from "../components/GeoLocation.astro"
 ---
 
 <html lang="en">
@@ -7,10 +7,17 @@
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Cloudflare Geolocation</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<h1>Cloudflare Geolocation</h1>
+
+		<GeoLocation server:defer />
 	</body>
 </html>
+
+<style>
+	* {
+		font-family: sans-serif;
+	}
+</style>

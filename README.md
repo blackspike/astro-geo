@@ -1,47 +1,39 @@
-# Astro Starter Kit: Minimal
+# Astro Geolocation
 
-```sh
-npm create astro@latest -- --template minimal
+## Add the Cloudflare adapter
+
+`npx astro add cloudflare`
+
+## Enable server islands
+
+This will be default in Astro 5.0, but for now add the following to `astro.config.mjs`
+
+```js
+export default defineConfig({
+  experimental: {
+    serverIslands: true,
+  },
+});
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Add a GeoLocation component
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+In the frontmatter, grab the Cloudflare `cf-ipcountry` header
 
-## 🚀 Project Structure
+```astro
+---
+const countryCode = Object.fromEntries(Astro.request.headers)?.["cf-ipcountry"]
+---
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+<h1>countryCode: {countryCode}</h1>
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Add the component to index.astro as a server island
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Just add the `server:defer` attribute: `<GeoLocation server:defer />`
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Create a new Cloudflare pages app
 
-## 🧞 Commands
+Publish your project to GitHub/Lab and crate a pages app from it via your Cloudflare dashboard
 
-All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
