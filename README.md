@@ -6,6 +6,12 @@ Here's how to use [Astro server islands](https://astro.build/blog/future-of-astr
 
 Demo: https://astro-geo.pages.dev
 
+## Create a new Astro project
+
+`npm create astro@latest astro-geo`
+
+For this simple case, set 'Empty project'/'No Typescript'/'Install dependencies'/'Initialize a new git repository' options
+
 ## Add the Cloudflare adapter
 
 `npx astro add cloudflare`
