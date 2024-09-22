@@ -87,7 +87,10 @@ else if (euCodes.includes(countryCode)) {
 
 Push your code up and check the build in your browser. If you have a vpn, try switching between US/UK/EU servers and reloading.
 
-View live demo: https://astro-geo.pages.dev
+### View live demo: [astro-geo.pages.dev](https://astro-geo.pages.dev)
+
+If you need an [Astro](https://www.blackspike.com/services/astro-vue-websites) website, do [get in touch](https://www.blackspike.com/contact)!
+
 
 ![webpage showing "Cloudflare Geolocation Price: €39.99"](public/eu.png)
 ![webpage showing "Cloudflare Geolocation Price: £29.99"](public/gb.png)
