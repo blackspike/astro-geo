@@ -34,7 +34,7 @@ In the frontmatter, grab the Cloudflare `cf-ipcountry` header
 
 ```astro
 ---
-const countryCode = Astro.request.headers.get("cf-ipcountry")?.toLowerCase();
+const countryCode = Astro.request.headers.get("cf-ipcountry")
 ---
 
 <h1>countryCode: {countryCode}</h1>
@@ -58,23 +58,23 @@ Let's show £ if you're in the UK, € if you're in the EU and default to $ in t
 
 ```astro
 ---
-const countryCode = Astro.request.headers.get("cf-ipcountry")?.toLowerCase();
+const countryCode = Astro.request.headers.get("cf-ipcountry")
 
-const euCodes = [ "at", "be", "bg", "hr", "cy", "cz", "dk", "ee", "fi", "fr", "de", "gr", "hu", "ie", "it", "lv", "lt", "lu", "mt", "nl", "pl", "pt", "ro", "sk", "si", "es", "se" ];
+const euCodes = ["AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE"];
 
-// Default usd
+// Default USD
 let geolocatedSymbol = "$";
-let geolocatedPrice = "19.99";
+let geolocatedPrice = 19.99;
 
-// If gb
-if (countryCode === "gb") {
+// If GB
+if (countryCode === "GB") {
   geolocatedSymbol = "£";
-  geolocatedPrice = "29.99";
+  geolocatedPrice = 29.99;
 }
-// If in eu
+// If in EU
 else if (euCodes.includes(countryCode)) {
   geolocatedSymbol = "€";
-  geolocatedPrice = "39.99";
+  geolocatedPrice = 39.99;
 }
 ---
 
