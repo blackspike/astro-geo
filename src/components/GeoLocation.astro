@@ -1,6 +1,5 @@
 ---
-const countryCode = Astro.request.headers.get("cf-ipcountry") || "US";
-const headers = Astro.request.headers;
+const countryCode = Astro.request.headers.get("x-country") || "US";
 
 const euCodes = [
   "AT",
@@ -52,4 +51,3 @@ else if (euCodes.includes(countryCode)) {
   Price: {geolocatedSymbol + geolocatedPrice}
 </h2>
 
-<pre>{headers}</pre>
