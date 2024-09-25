@@ -1,7 +1,36 @@
 ---
-const countryCode = Astro.request.headers.get("cf-ipcountry")
+const countryCode = Astro.request.headers.get("cf-ipcountry") || "US";
+const headers = Astro.request.headers;
 
-const euCodes = ["AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE"];
+const euCodes = [
+  "AT",
+  "BE",
+  "BG",
+  "HR",
+  "CY",
+  "CZ",
+  "DK",
+  "EE",
+  "FI",
+  "FR",
+  "DE",
+  "GR",
+  "HU",
+  "IE",
+  "IT",
+  "LV",
+  "LT",
+  "LU",
+  "MT",
+  "NL",
+  "PL",
+  "PT",
+  "RO",
+  "SK",
+  "SI",
+  "ES",
+  "SE",
+];
 
 // Default USD
 let geolocatedSymbol = "$";
@@ -22,3 +51,5 @@ else if (euCodes.includes(countryCode)) {
 <h2>
   Price: {geolocatedSymbol + geolocatedPrice}
 </h2>
+
+<pre>{Object.fromEntries(headers)}</pre>
