@@ -40,7 +40,7 @@ const countryCode = Astro.request.headers.get("cf-ipcountry")
 <h1>countryCode: {countryCode}</h1>
 ```
 <aside>
-Note: [it's been pointed out](https://www.reddit.com/r/astrojs/comments/1flz2zy/i_had_an_interesting_use_case_for_astro_server/) that other services offer similar headers, that we've not tested but worth noting:
+Note: it's been pointed out that other services offer similar headers, that we've not tested but worth noting:
 
 - [Vercel](https://vercel.com/changelog/ip-geolocation-for-serverless-functions): `Astro.request.headers.get('X-Vercel-IP-Country')`
 - [AWS](https://aws.amazon.com/about-aws/whats-new/2020/07/cloudfront-geolocation-headers/): `Astro.request.headers.get('cloudfront-viewer-country')`
